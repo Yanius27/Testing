@@ -3,14 +3,14 @@
  */
 
 import App from '../App';
+
 const app = new App();
 app.drawContainer();
 
-const input = app.form.input;
+const { input } = app.form;
 const submitBtn = app.form.button;
 
 describe('Function validator change DOM', () => {
-
   it.each([
     ['.icon_visa', 'change', true],
     ['.icon_masterCard', 'not change', false],
@@ -20,9 +20,10 @@ describe('Function validator change DOM', () => {
   ])('class of %s should %s', (element, _, boolean) => {
     input.value = '4716 4403 2731 8585';
     submitBtn.click();
-    expect(document.querySelector(element).classList.contains('icon_active')).toEqual(boolean);
-  })
-
+    expect(
+      document.querySelector(element).classList.contains('icon_active'),
+    ).toEqual(boolean);
+  });
 
   it.each([
     ['.icon_visa', false],
@@ -33,7 +34,8 @@ describe('Function validator change DOM', () => {
   ])('class of %s should not change', (element, boolean) => {
     input.value = '4716 5403 2731 8585';
     submitBtn.click();
-    expect(document.querySelector(element).classList.contains('icon_inactive')).toEqual(boolean);
-  })
-
-})
+    expect(
+      document.querySelector(element).classList.contains('icon_inactive'),
+    ).toEqual(boolean);
+  });
+});
