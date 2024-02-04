@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "stop": "^C",
     "build": "webpack --mode production",
     "lint": "eslint .",
     "test": "jest --testPathPattern=./src/",
