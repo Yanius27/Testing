@@ -19,7 +19,7 @@ describe('Card Number validate', () => {
   });
 
   test('Valid number should change class of all icons except right icon', async () => {
-    await page.goto('http://localhost:8080/');
+    await page.goto('http://localhost:9000/');
     await page.waitForSelector('.input_validate');
 
     const input = await page.$('.input_validate');
@@ -32,7 +32,7 @@ describe('Card Number validate', () => {
   }, 25000);
 
   test('Invalid number should not change class of all icons', async () => {
-    await page.goto('http://localhost:8080/');
+    await page.goto('http://localhost:9000/');
     await page.waitForSelector('.input_validate');
 
     const input = await page.$('.input_validate');
