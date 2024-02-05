@@ -32,11 +32,6 @@ describe('Credit Card Validator form', () => {
     page = await browser.newPage();
   });
 
-  afterAll(async () => {
-    await browser.close();
-    server.kill();
-  });
-
   test('Valid number should change class of all icons except right icon', async () => {
     await page.goto(baseUrl);
     await page.waitForSelector('.input_validate');
@@ -62,4 +57,9 @@ describe('Credit Card Validator form', () => {
 
     await page.waitForSelector('.icon_masterCard.icon_active');
   }, 30000);
+
+  afterAll(async () => {
+    if (browser) await browser.close();
+    if (server) server.kill();
+  });
 });
